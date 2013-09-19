@@ -1,0 +1,10 @@
+{
+    "name": "paza/git-hooks",
+    "description": "A code standard to check against the Symfony coding standards.",
+    "authors": [
+        {
+            "name": "pazaaa",
+            "email": "pazaaa@gmail.com"
+        }
+    ]
+}
