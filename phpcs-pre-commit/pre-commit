@@ -8,7 +8,7 @@
 
 PHPCS_BIN=bin/phpcs
 PHPCS_CODING_STANDARD=Symfony2
-PHPCS_IGNORE=
+PHPCS_IGNORE=*/Tests/*Test.php
 TMP_STAGING=".tmp_staging"
 
 # parse config
