@@ -1,6 +1,6 @@
 {
     "name": "paza/git-hooks",
-    "description": "A code standard to check against the Symfony coding standards.",
+    "description": "git phpcr pre-commit hook",
     "authors": [
         {
             "name": "pazaaa",
