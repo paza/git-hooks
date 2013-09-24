@@ -6,16 +6,30 @@
 #
 # see the README
 
-PHPCS_BIN=bin/phpcs
-PHPCS_CODING_STANDARD=Symfony2
-PHPCS_IGNORE=*/Tests/*Test.php
 TMP_STAGING=".tmp_staging"
 
-# parse config
-CONFIG_FILE=$(dirname $0)/config
-if [ -e $CONFIG_FILE ]; then
-    . $CONFIG_FILE
-fi
+# path to phpcs "binary"
+PHPCS_BIN=bin/phpcs
+
+# the coding standard, you can also specify a path to your own standard here
+# e. g. /path/to/my/standard/dir/
+PHPCS_CODING_STANDARD=Symfony2
+
+# comma-separated list of file patterns being ignored
+PHPCS_IGNORE=*/Tests/*Test.php
+
+# comma-seperated list of sniffs from the standard that should be used
+# use `phpcs --standard=PSR1 -e` to list sniffs for your standard
+#PHPCS_SNIFFS=Generic.Files.ByteOrderMark,Generic.PHP.DisallowShortOpenTag
+
+# egrep compatible pattern of  files to be checked
+PHPCS_FILE_PATTERN="\.(php|phtml)$"
+
+# ignore warnings
+#PHPCS_IGNORE_WARNINGS=1
+
+# encoding
+#PHPCS_ENCODING=utf-8
 
 # simple check if code sniffer is set up correctly
 if [ ! -x $PHPCS_BIN ]; then
@@ -32,7 +46,7 @@ else
     against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
 
-# this is the magic: 
+# this is the magic:
 # retrieve all files in staging area that are added, modified or renamed
 # but no deletions etc
 FILES=$(git diff-index --name-only --cached --diff-filter=ACMR $against -- )
